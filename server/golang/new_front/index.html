@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Dan-Music</title>
+    <link rel="icon" href="/src/assets/favicon.ico" />
+    <link rel="manifest" href="/src/assets/manifest.json" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css"
+      integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css"
+    />
+  </head>
+  <body></body>
+
+  <script src="https://apis.google.com/js/client.js?onload=onGoogleLoad"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"
+    integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  ></script>
+  <script src="https://cdn.jsdelivr.net/npm/idb@7/build/umd.js"></script>
+
+  <script>
+    document.cookie = "crossCookie=bar; SameSite=None; Secure";
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register(`/src/assets/sw.js`).then(
+        function (registration) {
+          console.log("[success]");
+        },
+        function (err) {
+          console.log("[fail]: ", err);
+        }
+      );
+    }
+  </script>
+  <script src="/src/main.js" type="module"></script>
+</html>

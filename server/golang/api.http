@@ -1,0 +1,87 @@
+POST https://music.daoh.dev/user/login
+Content-Type: application/json
+
+{
+    "username": "dan",
+    "password": "skymkey08"
+}
+###
+POST https://music.daoh.dev/user/register
+Content-Type: application/json
+
+{
+    "username": "test",
+    "password": "test"
+}
+###
+GET https://music.daoh.dev/user/info
+Content-Type: application/json
+
+{
+    "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyTmFtZSI6ImRhbiIsImV4cCI6MTY4MDMxNzIwN30.ttQYrcjmXyu0CJNg6_n2NXrQF847vb6kz7OD0lKl41U"
+}
+
+###
+POST  https://music.daoh.dev/playlist/get
+Content-Type: application/json
+
+{
+    "playlistid": "BsOCaEarEe",
+    "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyTmFtZSI6ImRhbiIsImV4cCI6MTY4MTg1NDk5NH0._HxIV005L-a9QTDud8QJuYhegp0S2U8OJUFbwUJRRM8"
+}
+###
+POST  https://music.daoh.dev/playlist/getall
+Content-Type: application/json
+
+{
+    "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyTmFtZSI6ImRhbiIsImV4cCI6MTY4MTg1NDk5NH0._HxIV005L-a9QTDud8QJuYhegp0S2U8OJUFbwUJRRM8"
+}
+###
+POST https://music.daoh.dev/playlist/create
+Content-Type: application/json
+
+{
+    "name": "test2",
+    "open": true, 
+    "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyTmFtZSI6InRlc3QiLCJleHAiOjE2ODAzMTY0OTF9.3cMg7EaNrRk22JWvby6JSzia59l1tf6H5Fx45dB9JAQ"
+}
+###
+PATCH  https://music.daoh.dev/playlist/edit
+Content-Type: application/json
+
+{
+    "playlistid": "9.yTwXWEIi",
+    "name": "testwow",
+    "open": true, 
+    "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyTmFtZSI6ImFkbWluIiwiZXhwIjoxNjc4MjQxNzE4fQ.otpSer5LQvdKXkKYeHGzqDVl8SmGfcJaVN0qDPW9_oo"
+}
+###
+DELETE   https://music.daoh.dev/playlist/delete
+Content-Type: application/json
+
+{
+    "playlistid": "bClriXCPqU",
+    "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyTmFtZSI6ImRhbiIsImV4cCI6MTY3ODM1OTI0M30._ViPauslvECy2X7qZIu8ZWNtqzUyUnwUd7G-CRC8W9I"
+}
+
+
+###
+POST https://music.daoh.dev/playlist/song/add
+Content-Type: application/json
+
+{
+    "playlistid": "JzAdRh70LI",
+    "name": "test songe",
+    "Songurl": "https://test.com/mpe.mp3", 
+    "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyTmFtZSI6ImFkbWluIiwiZXhwIjoxNjc4MjQxNzE4fQ.otpSer5LQvdKXkKYeHGzqDVl8SmGfcJaVN0qDPW9_oo"
+}
+
+###
+DELETE https://music.daoh.dev/playlist/song/delete
+Content-Type: application/json
+
+{
+    "playlistid": "JzAdRh70LI",
+    "songid": "1sWdYtZq3l",
+    "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyTmFtZSI6ImFkbWluIiwiZXhwIjoxNjc4MjQxNzE4fQ.otpSer5LQvdKXkKYeHGzqDVl8SmGfcJaVN0qDPW9_oo"
+}

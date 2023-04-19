@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  golang:
+    volumes:
+      - ./db:/work
+    build:
+      context: ./golang
+      dockerfile: ./dockerfile
+    ports:
+      - 80:80
+
+  python:
+    volumes:
+      - ./mp3:/work/mp3
+    build:
+      context: ./python
+      dockerfile: ./dockerfile
+    ports:
+      - 5001:5001
