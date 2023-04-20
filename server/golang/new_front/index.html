@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Dan-Music</title>
-    <link rel="icon" href="/src/assets/favicon.ico" />
-    <link rel="manifest" href="/src/assets/manifest.json" />
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="manifest" href="/manifest.json" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, maximum-scale=1"
@@ -33,11 +33,10 @@
     referrerpolicy="no-referrer"
   ></script>
   <script src="https://cdn.jsdelivr.net/npm/idb@7/build/umd.js"></script>
-
   <script>
     document.cookie = "crossCookie=bar; SameSite=None; Secure";
     if ("serviceWorker" in navigator) {
-      navigator.serviceWorker.register(`/src/assets/sw.js`).then(
+      navigator.serviceWorker.register(`/sw.js`).then(
         function (registration) {
           console.log("[success]");
         },
@@ -45,6 +44,9 @@
           console.log("[fail]: ", err);
         }
       );
+      self.addEventListener("install", (event) => {
+        console.log("Service worker Installing!");
+      });
     }
   </script>
   <script src="/src/main.js" type="module"></script>

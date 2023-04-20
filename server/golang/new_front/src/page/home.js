@@ -266,11 +266,11 @@ class home extends LitElement {
                 console.log(this.input);
                 if (this.input.Type == "Yt_Playlist") {
                   if (
-                    system.playlists.ytplaylistcopy(
+                    (await system.playlists.ytplaylistcopy(
                       this.input.Name,
                       this.input.IsPublic,
                       this.input.Yt_playlist_Url
-                    ) == false
+                    )) == false
                   ) {
                     toastr.error("Create Fail");
                   } else {
@@ -281,10 +281,10 @@ class home extends LitElement {
                   }
                 } else {
                   if (
-                    system.playlists.AddPlaylist(
+                    (await system.playlists.AddPlaylist(
                       this.input.Name,
                       this.input.IsPublic
-                    ) == null
+                    )) == null
                   ) {
                     toastr.error("Create Fail");
                   } else {

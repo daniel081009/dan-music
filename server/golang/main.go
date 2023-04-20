@@ -305,12 +305,13 @@ func main() {
 
 	// r.Use(static.Serve("/file", static.LocalFile("../python/mp3", false)))
 	r.Any("/file/*proxyPath", proxy)
+	r.Use(static.Serve("/", static.LocalFile("./new_front", false)))
 	r.Use(func(ctx *gin.Context) {
-		//send index.html for all routes
 		ctx.File("./new_front/index.html")
 	})
+	// file server
 
-	dev := 1
+	dev := 0
 	if dev == 1 {
 		r.Run(":80")
 	} else {
