@@ -80,7 +80,7 @@ def username_route():
     if os.path.exists(mp3path + request.args.to_dict()['v'] + ".mp3"):
         return host + "file/" + request.args.to_dict()['v'] + ".mp3"
     thread = Thread(target=download_mp3_playlist,
-                    args=("https://youtube.com/watch?v=" + request.args.to_dict()['v'], mp3path+"mp3/"))
+                    args=("https://youtube.com/watch?v=" + request.args.to_dict()['v'], mp3path))
     thread.daemon = True
     thread.start()
     return host + "file/" + request.args.to_dict()['v'] + ".mp3"
