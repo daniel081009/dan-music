@@ -310,8 +310,8 @@ func main() {
 		ctx.File("./new_front/index.html")
 	})
 
-	dev := true
-	if dev {
+	dev := 1
+	if dev == 1 {
 		r.Run(":80")
 	} else {
 		gin.SetMode(gin.ReleaseMode)
