@@ -9,6 +9,9 @@ services:
       dockerfile: ./dockerfile
     ports:
       - 80:80
+    networks:
+      vlan:
+        ipv4_address: 192.168.0.1
 
   python:
     volumes:
@@ -18,3 +21,18 @@ services:
       dockerfile: ./dockerfile
     ports:
       - 5001:5001
+    networks:
+      vlan:
+        ipv4_address: 192.168.0.2
+
+networks:
+  vlan:
+    driver: macvlan
+    driver_opts:
+      parent: eth0
+    ipam:
+      config:
+        - subnet: "192.168.0.0/24"
+          ip_range: "192.168.0.64/26"
+          gateway: "192.168.0.1"
+    
