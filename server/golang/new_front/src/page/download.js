@@ -26,6 +26,8 @@ class serverdownload extends LitElement {
     fetch("/file/downloadlist").then(async (data) => {
       let json = await data.json();
       this.list = json.list;
+      console.log(this.list);
+      this.requestUpdate();
     });
   }
   render() {
