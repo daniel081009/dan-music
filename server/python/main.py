@@ -77,7 +77,7 @@ def file_upload():
 def username_route():
     if request.args.to_dict()['v'] is None:
         return "No video id"
-    if os.path.exists(mp3path+"mp3/" + request.args.to_dict()['v'] + ".mp3"):
+    if os.path.exists(mp3path + request.args.to_dict()['v'] + ".mp3"):
         return host + "file/" + request.args.to_dict()['v'] + ".mp3"
     thread = Thread(target=download_mp3_playlist,
                     args=("https://youtube.com/watch?v=" + request.args.to_dict()['v'], mp3path+"mp3/"))
