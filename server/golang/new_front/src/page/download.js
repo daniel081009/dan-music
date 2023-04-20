@@ -18,7 +18,6 @@ class serverdownload extends LitElement {
         Router.go("/user/login");
       }
       this.name = data;
-      this.loop = setInterval(this.load, 5000);
       this.requestUpdate();
     });
   }
@@ -34,7 +33,7 @@ class serverdownload extends LitElement {
     return html`
       ${nav(this.name)}
       <main class="container">
-        <h1>Download</h1>
+        <h1 @click=${this.load}>Download</h1>
         <table>
           <tr>
             <th>url</th>
