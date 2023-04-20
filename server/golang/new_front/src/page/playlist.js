@@ -578,6 +578,7 @@ class playlist extends LitElement {
                 <button
                   @click=${async () => {
                     console.log("start");
+                    toastr.success("Save start");
                     await system.playlist.SaveSongs(this.playlist);
                     toastr.success("Save Success");
                   }}
