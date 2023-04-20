@@ -22,13 +22,13 @@ class serverdownload extends LitElement {
       this.requestUpdate();
     });
   }
-  load() {
-    fetch("/file/downloadlist").then(async (data) => {
-      let json = await data.json();
-      this.list = json.list;
-      console.log(this.list);
-      this.requestUpdate();
+  async load() {
+    let data = await fetch("/file/downloadlist").then(async (data) => {
+      return await data.json();
     });
+    this.list = data.list;
+    console.log(this.list);
+    this.requestUpdate();
   }
   render() {
     return html`
