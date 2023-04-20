@@ -48,7 +48,8 @@ def after_request(response):
     return response
 
 
-host = "http://localhost/"
+host = "https://music.daoh.dev/"
+mp3path = "/home/dan/dan-music/server/python/mp3/"
 
 
 @app.route('/downloadlist', methods=['GET'])
@@ -76,10 +77,10 @@ def file_upload():
 def username_route():
     if request.args.to_dict()['v'] is None:
         return "No video id"
-    if os.path.exists("./mp3/" + request.args.to_dict()['v'] + ".mp3"):
+    if os.path.exists(mp3path+"mp3/" + request.args.to_dict()['v'] + ".mp3"):
         return host + "file/" + request.args.to_dict()['v'] + ".mp3"
     thread = Thread(target=download_mp3_playlist,
-                    args=("https://youtube.com/watch?v=" + request.args.to_dict()['v'], "./mp3/"))
+                    args=("https://youtube.com/watch?v=" + request.args.to_dict()['v'], mp3path+"mp3/"))
     thread.daemon = True
     thread.start()
     return host + "file/" + request.args.to_dict()['v'] + ".mp3"
@@ -97,22 +98,15 @@ nolist = []
 
 @app.route('/<path:filename>')
 def download_file(filename):
-    if not os.path.exists("./mp3/" + filename) and filename not in nolist and filename.split(".")[1] == "mp3":
+    if not os.path.exists(mp3path+"mp3/" + filename) and filename not in nolist and filename.split(".")[1] == "mp3":
         nolist.append(filename)
         print("File not found, downloading", filename.split(".")[0])
         thread = Thread(target=download_mp3_playlist,
-                        args=("https://youtube.com/watch?v=" + filename.split(".")[0], "./mp3/"))
+                        args=("https://youtube.com/watch?v=" + filename.split(".")[0], mp3path+"mp3/"))
         thread.daemon = True
         thread.start()
 
     return send_file(path_or_file='mp3/'+filename, as_attachment=True)
-
-# def send_file_partial(path):
-#     headers = {'Content-Length': os.path.getsize("mp3/"+path)}
-#     file_obj = BytesIO()
-#     file_obj.write(open("./mp3/"+path, 'rb').read())
-#     file_obj.seek(0)
-#     return Response(file_obj, headers=headers)
 
 
 if __name__ == '__main__':
