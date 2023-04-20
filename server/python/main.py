@@ -98,7 +98,7 @@ nolist = []
 
 @app.route('/<path:filename>')
 def download_file(filename):
-    if not os.path.exists(mp3path+"mp3/" + filename) and filename not in nolist and filename.split(".")[1] == "mp3":
+    if not os.path.exists(mp3path + filename) and filename not in nolist and filename.split(".")[1] == "mp3":
         nolist.append(filename)
         print("File not found, downloading", filename.split(".")[0])
         thread = Thread(target=download_mp3_playlist,
@@ -106,7 +106,7 @@ def download_file(filename):
         thread.daemon = True
         thread.start()
 
-    return send_file(path_or_file='mp3/'+filename, as_attachment=True)
+    return send_file(path_or_file=mp3path+filename, as_attachment=True)
 
 
 if __name__ == '__main__':
