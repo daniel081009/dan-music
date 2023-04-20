@@ -17,7 +17,7 @@ import (
 )
 
 func proxy(c *gin.Context) {
-	remote, err := url.Parse("http://192.168.0.2:5001")
+	remote, err := url.Parse("http://127.0.0.1:5001")
 	if err != nil {
 		panic(err)
 	}
