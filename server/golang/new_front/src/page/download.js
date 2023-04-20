@@ -11,7 +11,6 @@ const system = new System();
 class serverdownload extends LitElement {
   constructor() {
     super();
-    this.loop = setInterval(this.load, 5000);
     this.list = [];
     this.name = "null";
     system.user.checkToken().then((data) => {
@@ -19,6 +18,7 @@ class serverdownload extends LitElement {
         Router.go("/user/login");
       }
       this.name = data;
+      this.loop = setInterval(this.load, 5000);
       this.requestUpdate();
     });
   }
