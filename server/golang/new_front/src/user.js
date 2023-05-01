@@ -15,7 +15,7 @@ export default class User {
             token: localStorage.getItem("token"),
           },
         });
-        localStorage.setItem("check", data.data);
+        localStorage.setItem("check", JSON.stringify(data.data));
         if (data.data["message"] != "success!") {
           return false;
         }
