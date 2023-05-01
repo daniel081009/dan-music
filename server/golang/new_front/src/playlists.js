@@ -69,6 +69,8 @@ export default class PlayLists {
     } catch (e) {
       if (localStorage.getItem("playlists")) {
         this.PlayLists = JSON.parse(localStorage.getItem("playlists"));
+
+        this.load = true;
         return this.PlayLists;
       }
       return null;

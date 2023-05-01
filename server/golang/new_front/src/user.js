@@ -21,8 +21,8 @@ export default class User {
         }
         return data.data["user"].UserName;
       } catch (e) {
-        if (localStorage.getItem("check")["message"] != "success!") {
-          return localStorage.getItem("check")["user"].UserName;
+        if (localStorage.getItem("check")) {
+          return JSON.parse(localStorage.getItem("check"))["user"].UserName;
         }
         console.log(e);
         return false;
