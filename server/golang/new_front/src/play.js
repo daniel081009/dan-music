@@ -25,9 +25,11 @@ export default class play {
       for (let i = 0; i < this.songs.length; i++) {
         let url = "";
         try {
-          url = URL.createObjectURL(await this.db.get(this.songs[i].ImgUrl));
+          this.songs[i].relimgurl = URL.createObjectURL(
+            await this.db.get(this.songs[i].ImgUrl)
+          );
         } catch (error) {
-          url = this.songs[i].ImgUrl;
+          this.songs[i].relimgurl = this.songs[i].ImgUrl;
         }
         this.songs[i].mi = new MediaMetadata({
           title: this.songs[i].Name,

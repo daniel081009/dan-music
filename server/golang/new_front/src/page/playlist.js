@@ -29,7 +29,7 @@ class Player {
   render() {
     return html` <div class="player">
       <div class="play_data">
-        <img src=${this.play.songs[this.play.index].ImgUrl} />
+        <img src=${this.play.songs[this.play.index].relimgurl} />
         <div class="name">${this.play.songs[this.play.index].Name}</div>
       </div>
       <div class="view">

@@ -8,6 +8,7 @@ import Youtube from "./youtube.js";
  * @property {string} Id 곡 아이디
  * @property {string} Name 곡 이름
  * @property {string} ImgUrl 곡 이미지 경로
+ * @property {string} relimgurl 곡 이미지 경로(진짜)
  * @property {string} Path 곡 음악파일 경로
  */
 
