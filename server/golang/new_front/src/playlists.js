@@ -64,10 +64,13 @@ export default class PlayLists {
           token: localStorage.getItem("token"),
         },
       });
-      console.log(data.data.playlists);
+      localStorage.setItem("playlists", JSON.stringify(data.data.playlists));
       this.PlayLists = data.data.playlists;
     } catch (e) {
-      console.log(e);
+      if (localStorage.getItem("playlists")) {
+        this.PlayLists = JSON.parse(localStorage.getItem("playlists"));
+        return this.PlayLists;
+      }
       return null;
     }
     this.load = true;

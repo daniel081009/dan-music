@@ -15,11 +15,15 @@ export default class User {
             token: localStorage.getItem("token"),
           },
         });
+        localStorage.setItem("check", data.data);
         if (data.data["message"] != "success!") {
           return false;
         }
         return data.data["user"].UserName;
       } catch (e) {
+        if (localStorage.getItem("check")["message"] != "success!") {
+          return localStorage.getItem("check")["user"].UserName;
+        }
         console.log(e);
         return false;
       }
